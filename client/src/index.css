@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply font-body bg-slate-50 text-slate-800 antialiased transition-colors duration-200;
+}
+
+html.dark body {
+  @apply bg-slate-950 text-slate-100;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+/* Reusable component classes */
+@layer components {
+  .card {
+    @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl2 shadow-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold text-sm px-5 py-2.5 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-500 text-white hover:bg-primary-600 shadow-md shadow-primary-500/25 hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-500 hover:text-primary-500;
+  }
+
+  .btn-danger {
+    @apply btn bg-expense text-white hover:opacity-90;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-primary-500;
+  }
+
+  .label {
+    @apply block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300;
+  }
+
+  .error-text {
+    @apply text-xs text-expense mt-1;
+  }
+}
