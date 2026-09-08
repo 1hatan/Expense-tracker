@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import dns from "dns";
 
-// Use public DNS servers for reliable SRV resolution on Windows environments
+// Use public DNS servers for reliable SRV and socket resolution on Windows environments
 try {
+  dns.setDefaultResultOrder("ipv4first");
   dns.setServers(["8.8.8.8", "1.1.1.1"]);
 } catch (e) {
   // fallback silently if setServers fails
