@@ -1,0 +1,11 @@
+{
+  "name": "expense-tracker-mern",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix server start",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "dev": "npx concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\""
+  }
+}
